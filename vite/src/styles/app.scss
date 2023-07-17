@@ -1,9 +1,9 @@
 @import "sass/_mixins/_font-face.sass";
 
-@include font-face("NouvelR", "/assets/fonts/NouvelR-Light", 300);
-@include font-face("NouvelR", "/assets/fonts/NouvelR-Regular", 400);
-@include font-face("NouvelR", "/assets/fonts/NouvelR-Semibold", 600);
-@include font-face("NouvelR", "/assets/fonts/NouvelR-Bold", 700);
+@include font-face("NouvelR", "../../assets/fonts/NouvelR-Light", 300);
+@include font-face("NouvelR", "../../assets/fonts/NouvelR-Regular", 400);
+@include font-face("NouvelR", "../../assets/fonts/NouvelR-Semibold", 600);
+@include font-face("NouvelR", "../../assets/fonts/NouvelR-Bold", 700);
 
 @tailwind base;
 @tailwind components;
