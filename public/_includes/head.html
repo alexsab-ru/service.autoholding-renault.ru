@@ -37,6 +37,12 @@
 
 	<link rel="shortcut icon" href="{{ 'img/logos/favicon.ico' | relative_url }}" type="image/x-icon">
 
+	
+	<!-- <meta name="data.manifest" content="{{ site.data.manifest }}" /> -->
+	<!-- <meta name="data.manifest.src" content="{{ site.data.manifest['src/style.css'] }}" />
+	<meta name="data.manifest.file" content="{{ site.data.manifest['src/style.css'].file }}" />
+	<meta name="environment" content="{{ jekyll.environment }}" /> -->
+
 	{% if jekyll.environment == "development" %}
 		<link rel="stylesheet" href="{{ site.vitehost | append: "/src/styles/app.scss" }}">
 	{% else %}
