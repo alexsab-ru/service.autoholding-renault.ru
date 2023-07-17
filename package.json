@@ -1,0 +1,30 @@
+{
+  "name": "service.autoholding-renault.ru",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "init": "cd public && bundle install",
+    "vite": "cd vite && APP_ENV=development vite dev",
+    "jekyll": "cd public && JEKYLL_ENV=development bundle exec jekyll serve -l -o",
+    "dev": "concurrently \"cd vite && APP_ENV=development vite dev\" \"cd public && JEKYLL_ENV=development bundle exec jekyll serve -l -o\"",
+    "devwin": "concurrently \"cd vite && cross-env APP_ENV=development vite dev\" \"cd public && cross-env JEKYLL_ENV=development bundle exec jekyll serve -l -o\"",
+    "deploy": "cd vite && APP_ENV=production vite build && cd ../public && mv dist/manifest.json _data/manifest.json && rm -rf assets && mv dist/assets assets",
+    "build": "cd vite && APP_ENV=production vite build && cd ../public && mv dist/manifest.json _data/manifest.json && rm -rf assets && mv dist/assets assets && JEKYLL_ENV=production bundle exec jekyll build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.0.0",
+    "@vue/compiler-sfc": "^3.2.45",
+    "autoprefixer": "^10.4.14",
+    "concurrently": "^8.2.0",
+    "cross-env": "^7.0.3",
+    "postcss": "^8.4.25",
+    "tailwindcss": "^3.3.2",
+    "vite": "^4.0.4",
+    "vite-plugin-live-reload": "^3.0.1"
+  }
+}

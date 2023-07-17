@@ -1,0 +1,12 @@
+{
+  "src/index.js": {
+    "file": "assets/script-453b3692.js",
+    "isEntry": true,
+    "src": "src/index.js"
+  },
+  "src/style.css": {
+    "file": "assets/style-c981ee71.css",
+    "isEntry": true,
+    "src": "src/style.css"
+  }
+}

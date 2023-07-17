@@ -1,0 +1,21 @@
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+	<meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" />
+	<meta itemprop="name" content="Kia Bongo">
+	<meta itemprop="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+	<meta property="og:url" content="/" />
+	<meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
+	<meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" />
+	<meta property="og:type" content="website" />
+
+	{% if jekyll.environment == "development" %}
+		<link rel="stylesheet" href="{{ site.vitehost | append: "/src/style.css" }}">
+	{% else %}
+		{% if site.data.manifest and site.data.manifest['src/style.css'] and site.data.manifest['src/style.css'].file %}
+			<link rel="stylesheet" href="{{ site.data.manifest['src/style.css'].file | prepend: "./" }}">
+		{% endif %}
+	{% endif %}
+
+</head>

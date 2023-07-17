@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'ru' }}">
+{%- include head.html -%}
+<body class="relative">
+
+	{%- include header.html -%}
+
+	<main>
+		{{ content }}
+	</main>
+
+	{%- include footer.html -%}
+
+	{% if jekyll.environment == "development" %}
+		<script type="module" src="{{ site.vitehost | append: "/src/index.js" }}"></script>
+	{% else %}
+		{% if site.data.manifest and site.data.manifest['src/index.js'] and site.data.manifest['src/index.js'].file %}
+			<script type="module" src="{{ site.data.manifest['src/index.js'].file | prepend: "./" }}"></script>
+		{% endif %}
+	{% endif %}
+
+</body>
+</html>
