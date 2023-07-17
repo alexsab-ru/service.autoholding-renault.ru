@@ -2,11 +2,7 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 const colors = require('tailwindcss/colors');
 
 module.exports = {
-	content: [
-		'../**/*.html',
-		'../!public/_site',
-		'../!_site',
-	],
+	content: ['../**/*.html'],
 	theme: {
 		colors: {
 			blue: '#0C90D9',
