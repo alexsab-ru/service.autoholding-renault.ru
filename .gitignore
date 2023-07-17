@@ -134,3 +134,6 @@ dist
 _site/
 .jekyll-cache
 .jekyll-metadata
+
+public/assets/*
+public/_data/manifest.json
