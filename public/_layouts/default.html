@@ -15,7 +15,7 @@
 		<script type="module" src="{{ site.vitehost | append: "/src/index.js" }}"></script>
 	{% else %}
 		{% if site.data.manifest and site.data.manifest['src/index.js'] and site.data.manifest['src/index.js'].file %}
-			<script type="module" src="{{ site.data.manifest['src/index.js'].file | prepend: "./" }}"></script>
+			<script type="module" src="{{ site.data.manifest['src/index.js'].file | prepend: "./" | relative_url }}"></script>
 		{% endif %}
 	{% endif %}
 
