@@ -21,7 +21,7 @@ import path from 'path'
 export default defineConfig({
 
   plugins: [
-    vue(),
+    // vue(),
     liveReload([
       // edit live reload paths according to your source code
       // for example:
@@ -69,7 +69,7 @@ export default defineConfig({
   // https://vuejs.org/guide/scaling-up/tooling.html#note-on-in-browser-template-compilation
   resolve: {
     alias: {
-      vue: 'vue/dist/vue.esm-bundler.js'
+      // vue: 'vue/dist/vue.esm-bundler.js'
     }
   }
 })
