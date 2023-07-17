@@ -50,8 +50,8 @@ export default defineConfig({
     // our entry
     rollupOptions: {
       input: {
-        script: path.resolve(__dirname, 'src/index.js'),
-        style: path.resolve(__dirname, 'src/style.css'),
+        script: path.resolve(__dirname, 'src/js/index.js'),
+        style: path.resolve(__dirname, 'src/styles/app.scss'),
       },
     }
   },
