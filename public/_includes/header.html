@@ -1,0 +1,40 @@
+<header class="bg-white">
+	<div class="border-b berder-gray-500 md:border-0 relative z-40">
+		<div class="container mx-auto px-3">
+			<div class="flex flex-row flex-wrap items-center justify-center sm:justify-between py-4 space-x-5 md:space-y-0 space-y-2">
+				<a href="/" class="flex items-center flex-0">
+					<img src="{{ 'img/logo-renault-black.svg' | relative_url }}" alt="{{ site.title }}" class="h-[44px]">
+					<div class="ml-3 space-y-0 leading-none">
+						<p class="uppercase font-semibold">АВТОХОЛДИНГ RENAULT</p>
+						<p class="text-[11px]">официальный дилер</p>
+					</div>
+				</a>
+
+				<div class="hidden xl:flex space-x-8">
+					<div class="space-y-0 leading-none text-center">
+						<p class="font-semibold">c 8.00 до 19.00</p>
+						<p class="text-[11px]">ежедневно</p>
+					</div>
+
+					<div class="space-y-0 leading-none text-center">
+						<p class="font-semibold">Тургеневское шоссе, 20 Д</p>
+						<p class="text-[11px]">г. Краснодар</p>
+					</div>
+				</div>
+
+				<a href="tel:+7 (861) 992-02-02" class="text-gray-900 font-semibold text-lg lg:text-2xl">+7 (861) 992-02-02</a>
+
+				<button x-data="" @click="
+						$store.modalShow.open($dispatch,
+							'Заказать звонок',
+							'Наши менеджеры с удовольствием свяжутся <br />с Вами!',
+							'Заказать звонок. Шапка сайта',
+							'Перезвоните мне'
+						);
+						" class="btn btn-super-primary">
+					Звони				</button>
+
+			</div>
+		</div>
+	</div>
+</header>

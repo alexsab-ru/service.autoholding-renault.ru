@@ -12,7 +12,7 @@
 	{%- include footer.html -%}
 
 	{% if jekyll.environment == "development" %}
-		<script type="module" src="{{ site.vitehost | append: "/src/index.js" }}"></script>
+		<script type="module" src="{{ site.vitehost | append: "/src/js/index.js" }}"></script>
 	{% else %}
 		{% if site.data.manifest and site.data.manifest['src/index.js'] and site.data.manifest['src/index.js'].file %}
 			<script type="module" src="{{ site.data.manifest['src/index.js'].file | prepend: "./" | relative_url }}"></script>
