@@ -13,7 +13,7 @@
 // if it where, we could use https://vitejs.dev/config/server-options.html#server-origin)
 
 import { defineConfig, splitVendorChunkPlugin } from 'vite'
-import vue from '@vitejs/plugin-vue'
+// import vue from '@vitejs/plugin-vue'
 import liveReload from 'vite-plugin-live-reload'
 import path from 'path'
 
