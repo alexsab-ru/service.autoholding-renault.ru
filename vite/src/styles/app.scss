@@ -5,6 +5,8 @@
 @include font-face("NouvelR", "https://alexsab-ru.github.io/service.autoholding-renault.ru/assets/fonts/NouvelR-Semibold", 600);
 @include font-face("NouvelR", "https://alexsab-ru.github.io/service.autoholding-renault.ru/assets/fonts/NouvelR-Bold", 700);
 
+@import "../../../node_modules/swiper/swiper-bundle.min.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
