@@ -1,0 +1,41 @@
+{% if site.data.feedback | size > 0 %}
+{% assign feedback = site.data.feedback %}
+<section class="reviews bg-gray-100 py-16 hidden">
+	<div class="container px-3 mx-auto">
+		<h2 class="text-gray-900 text-2xl sm:text-4xl text-center font-bold relative pb-3 mb-8">
+			Отзывы о автосервисе Renault
+			<span class="absolute left-[50%] bottom-0 w-24 h-0.5 bg-blue transform translate-x-[-50%]"></span>
+		</h2>
+
+		<div class="partners-slider swiper !pb-14">
+			<div class="swiper-wrapper">
+
+				{% for feed in feedback %}
+				{% if feed['show'] %}
+				<div class="swiper-slide">
+					<div class="reviews__item">
+						<div class="reviews__item--text px-5 py-8 bg-white shadow-lg rounded-lg">
+							<blockquote class="max-h-[230px] overflow-y-auto">
+								<p>{{ feed['review'] }}</p>
+							</blockquote>
+						</div>
+						<div class="reviews__item--bottom flex items-center mt-5">
+							<img src="{{ 'img/icons/message.svg' | relative_url }}" class="w-12 h-auto mr-5" />
+							<div class="reviews__item-autor">
+								<div>{{ feed['name'] }}</div>
+								<small>{{ feed['date'] }}</small>
+							</div>
+						</div>
+					</div>
+				</div>
+				{% endif %}
+				{% endfor %}
+
+			</div>
+			<div class="swiper-pagination"></div>
+
+		</div>
+
+	</div>
+</section>
+{% endif %}
