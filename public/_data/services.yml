@@ -1,0 +1,45 @@
+ - title: Диагностика автомобилей Рено
+   icon: img/icons/services/diagnostic.png
+   show: true
+ - title: Диагностика и ремонт двигателя Рено
+   icon: img/icons/services/check-engine.png
+   show: true
+ - title: Диагностика и ремонт ходовой и рулевого управления Рено
+   icon: img/icons/services/running-gear.png
+   show: true
+ - title: Диагностика и ремонт тормозной системы
+   icon: img/icons/services/brake.png
+   show: true
+ - title: Развал-схождение автомобилей Рено
+   icon: img/icons/services/shod-razval.png
+   show: true
+ - title: Диагностика и ремонт трансмиссии Рено
+   icon: img/icons/services/kp.png
+   show: true
+ - title: Диагностика и ремонт электрики Рено
+   icon: img/icons/services/battery.png
+   show: true
+ - title: Обслуживание систем кондиционера и отопления
+   icon: img/icons/services/conditioner.png
+   show: true
+ - title: Замена технических жидкостей и фильтров Рено
+   icon: img/icons/services/oil.png
+   show: true
+ - title: Шиномонтаж Рено
+   icon: img/icons/services/tire-service.png
+   show: true
+ - title: Установка дополнительного оборудования
+   icon: img/icons/services/dop-equipment.png
+   show: true
+ - title: Дополнительный сервис
+   icon: img/icons/services/dop-service.png
+   show: true
+ - title: Малярно-кузовные работы
+   icon: img/icons/services/bodywork.png
+   show: true
+ - title: Автомойка
+   icon: img/icons/services/car-wash.png
+   show: true
+ - title: Агрегатный ремонт
+   icon: img/icons/services/agregat.png
+   show: true

@@ -1,0 +1,40 @@
+{% if site.data.services | size > 0 %}
+{% assign services = site.data.services %}
+<section class="services pt-16 pb-8 bg-gray-900 relative" id="services">
+	<div class="container px-3 mx-auto">
+		<div class="text-white text-2xl sm:text-4xl text-center font-bold relative pb-3">
+			Услуги
+			<span class="absolute left-[50%] bottom-0 w-24 h-0.5 bg-white transform translate-x-[-50%]"></span>
+		</div>
+
+		<div class="flex flex-wrap justify-center mt-16">
+		{% for service in services %}
+		{% if service['show'] %}
+			<a
+				href="#"
+				class="w-1/2 lg:w-1/3 px-2 sm:px-5 mb-10 text-white text-center inline-block relative transition-all duration-300 hover:text-yellow group"
+				@click.prevent="
+					$store.modalShow.open($dispatch,
+						'Желаете записаться?',
+						'Наши менеджеры с удовольствием свяжутся <br />с Вами!',
+						'Услуги. {{ service['title'] }}',
+						'Перезвоните мне'
+					);
+				"
+			>
+				<span class="rounded-full w-20 h-20 flex items-center justify-center mb-3 mx-auto border border-white transition-all duration-300 group-hover:border-yellow group-hover:bg-yellow">
+					<img
+						src="{{ service['icon'] | relative_url }}"
+						alt="{{service['title']}}"
+						class="w-auto h-10 transition-all group-hover:invert"
+					>
+				</span>
+				<h3 class="text-xs sm:text-xl">{{ service['title'] }}</h3>
+			</a>
+		{% endif %}
+		{% endfor %}
+		</div>
+
+	</div>
+</section>
+{% endif %}
