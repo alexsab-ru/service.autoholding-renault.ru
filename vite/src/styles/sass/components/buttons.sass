@@ -11,14 +11,14 @@
 
 
 .swiper-button-next, .swiper-button-prev
-	@apply w-10 h-16 bg-black
+	@apply bg-black
 .swiper-button-next
 	@apply right-0
 .swiper-button-prev
 	@apply left-0
 .swiper-button-next:after, .swiper-button-prev:after
-	@apply text-white text-2xl
+	@apply text-white text-2xl #{!important}
 .swiper-pagination-bullet
-	@apply w-4 h-4 opacity-100 bg-transparent border border-transparent relative before:content-[''] before:w-2.5 before:h-2.5 before:bg-white before:absolute before:rounded-full before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2
+	@apply w-4 h-4 opacity-100 bg-transparent border border-transparent relative before:content-[''] before:w-2.5 before:h-2.5 before:bg-white before:absolute before:rounded-full before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 #{!important}
 .swiper-pagination-bullet.swiper-pagination-bullet-active
-	@apply border-yellow before:bg-yellow
+	@apply border-yellow before:bg-yellow #{!important}

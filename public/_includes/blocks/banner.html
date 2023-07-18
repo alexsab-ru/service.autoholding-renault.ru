@@ -1,0 +1,36 @@
+<div class="banner bg-gray-100">
+	<div class="banner-slider swiper h-full">
+		<!-- Additional required wrapper -->
+		<div class="swiper-wrapper h-full">
+			<!-- Slides -->
+			{% if site.data.banners | size > 0 %}
+            {% for banner in site.data.banners %}
+			<a href="javascript:void(0)" class="swiper-slide h-full" x-data
+				@click="
+					$store.modalShow.open($dispatch,
+						'<?=$data['website']->popup_question_title?>',
+						'<?=nl2br2($data['website']->popup_question_subtitle)?>',
+						'Баннер',
+						'<?=$data['website']->popup_question_btn?>'
+					);
+					">
+				<img
+					src="{{ banner['desktop'] | relative_url }}"
+					class="w-full object-cover object-center hidden sm:block" loading="lazy"
+					/>
+				<img
+					src="{{ banner['mobile'] | relative_url }}"
+					class="w-full object-cover object-center sm:hidden" loading="lazy"
+					/>
+				<div class="swiper-lazy-preloader"></div>
+			</a>
+            {% endfor %}
+            {% endif %}
+		</div>
+		<div class="swiper-pagination"></div>
+		<div class="swiper-button-prev !w-10 !h-16 !left-0"></div>
+		<div class="swiper-button-next !w-10 !h-16 !right-0"></div>
+
+	</div>
+	<h1 class="banner-title bg-yellow py-5 px-3 w-full text-center text-xl sm:text-3xl text-black uppercase z-20">Автосервис по ремонту и ТО автомобилей Рено (Renault)</h1>
+</div>

@@ -1,3 +1,4 @@
-import './modules/test';
+import './modules/cookie';
+import './modules/sliders';
 
 console.log("APP");
