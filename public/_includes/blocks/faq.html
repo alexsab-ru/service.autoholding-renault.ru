@@ -14,7 +14,8 @@
         {% assign id = f['id'] %} 
         {% assign open = f['open'] %}
 		<div
-			class="px-5 py-4 rounded-md mb-3 transition hover:bg-gray-300 {% if f['open'] %} bg-gray-300 {% else %} bg-gray-100 {% endif %}"
+			class="px-5 py-4 rounded-md mb-3 transition hover:bg-gray-300"
+			:class="{'bg-gray-300': activities.includes({{ id }}), 'bg-gray-100': !activities.includes({{ id }})}"
 			x-init="activities.push({{ open }} ? {{ id }} : null)"
 		>
 			<div
