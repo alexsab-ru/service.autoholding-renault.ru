@@ -19,7 +19,7 @@ document.addEventListener('alpine:init', (data) => {
             if(el){
                 window.scrollTo({
                     behavior: 'smooth',
-                    top: el.getBoundingClientRect().top + window.pageYOffset - offset
+                    top: el.getBoundingClientRect().top + window.scrollY - offset
                 });
             }
 		},
