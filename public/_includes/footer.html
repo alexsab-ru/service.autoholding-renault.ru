@@ -1,0 +1,28 @@
+<footer class="py-10 bg-black text-white text-opacity-70">
+	<div class="container px-3 mx-auto text-base">
+		<a href="/" class="flex items-center flex-0">
+			<img src="{{ 'img/logo-renault-black.svg' | relative_url }}" alt="ALT" class="filter brightness-0 invert w-[100px] md:w-[170px] hidden md:block mx-auto mb-10">
+			<img src="{{ 'img/logo-renault-black.svg' | relative_url }}" alt="ALT" class="filter brightness-0 invert md:hidden mx-auto mb-10">
+		</a>
+		<p class="mb-4">
+            Мы не разделяем автомобили на новые или старые, автомобили на заводской гарантии или после ее окончания. Для всех владельцев Renault и на автомобили Renault любого года выпуска мы готовы предоставить обслуживание любого типа, по одинаково низким ценам, но со всеми преимуществами Официального дилера.
+            <br>
+            <br>
+            Стоимость ТО, указанная на сайте, является ориентировочной. Не является офертой
+        </p>
+		<hr class="my-8">
+		<div class="text-center text-sm">
+			<a x-data @click="$store.modalShow.on = 4" href="javascript:void(0)" class="underline transition hover:no-underline inline-block mb-3">Политика в области обработки персональных данных</a>
+			<p>Данный интернет-сайт носит информационный характер и не является публичной офертой, определяемой положениями Статьи 437 ГК РФ.</p>
+		</div>
+		<p class="mt-8 right-0 text-right text-sm">Разработка <a href="https://alexsab.ru?utm_source=autoholding" target="_blank">alexsab.ru</a></p>
+	</div>
+</footer>
+
+<div class="hidden cookie_notice fixed bottom-0 left-0 right-0 p-5 bg-gray-100 z-[9999] text-center text-xs sm:text-sm text-gray-500">
+	Этот сайт использует файлы cookies и сервисы сбора технических данных посетителей (данные об IP-адресе, местоположении и др.) для обеспечения работоспособности и улучшения качества обслуживания. Продолжая использовать наш сайт, вы автоматически соглашаетесь с использованием данных технологий.
+	<div class="flex justify-center items-center mt-4">
+		<a class="mr-5 btn" href="#" x-data @click.prevent="$store.modalShow.on = 4">Подробнее</a>
+		<a class="btn btn-super-primary !text-xs !py-2 !px-5" id="cookie_close" href="#close">Согласен</a>
+	</div>
+</div>
