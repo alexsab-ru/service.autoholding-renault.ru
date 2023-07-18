@@ -19,9 +19,11 @@
 			<div class="px-8 pb-8">
 				<form>
 					<input type="hidden" name="subject" :value="subject">
-					<input type="hidden" name="brand" value="renault">
 					<input type="text" name="name" class="form-input w-full border border-gray-500 py-2 px-3 mb-3" placeholder="Ваше имя">
-					<input type="tel" name="phone" class="w-full border border-gray-500 py-2 px-3 mb-5" placeholder="Ваш номер телефона *" required>
+					<div class="relative pb-5">
+						<input type="tel" name="phone" class="w-full border border-gray-500 py-2 px-3" placeholder="Ваш номер телефона *" required>
+						<div class="error text-[red] text-xs absolute bottom-0 hidden" id="phone"></div>
+					</div>
 					<small class="block text-xs text-gray-500 mb-5">Нажимая на кнопку «Отправить», вы даете свое согласие на <a x-data @click="$store.modalShow.on=2" href="javascript:void(0)" class="block text-gray-700 underline transition hover:no-underline">обработку персональных данных</a></small>
 					<button type="submit" class="btn btn-primary w-full" x-text="button"></button>
 				</form>
