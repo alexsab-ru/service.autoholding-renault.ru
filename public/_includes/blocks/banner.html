@@ -6,13 +6,13 @@
 			{% if site.data.banners | size > 0 %}
             {% for banner in site.data.banners %}
 			<a href="javascript:void(0)" class="swiper-slide h-full" x-data
-				@click="
+				@click="				
 					$store.modalShow.open($dispatch,
-						'<?=$data['website']->popup_question_title?>',
-						'<?=nl2br2($data['website']->popup_question_subtitle)?>',
+						'Появились вопросы?',
+						'Наши менеджеры с удовольствием свяжутся <br />с Вами!',
 						'Баннер',
-						'<?=$data['website']->popup_question_btn?>'
-					);
+						'Перезвоните мне'
+					);										
 					">
 				<img
 					src="{{ banner['desktop'] | relative_url }}"

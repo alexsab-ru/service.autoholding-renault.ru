@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: 'ru' }}">
 {%- include head.html -%}
-<body class="relative">
+<body class="relative" x-data="data" @keydown.escape="$store.state.isResponseModalOpen = false; $store.modalShow.on = ($store.modalShow.on > 1 && $store.modalShow.on < 4) ? 1 : 0;">
 
 	{%- include header.html -%}
 
@@ -10,6 +10,7 @@
 	</main>
 
 	{%- include footer.html -%}
+	{%- include blocks/modals.html -%}
 
 	{% if jekyll.environment == "development" %}
 		<script type="module" src="{{ site.vitehost | append: "/src/js/index.js" }}"></script>

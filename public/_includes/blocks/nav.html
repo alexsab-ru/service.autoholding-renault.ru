@@ -5,18 +5,14 @@
 				<a href="#" class="block text-center py-3 font-semibold hover:bg-gray-700 transition" @click.prevent="scroll('specials', 0);">Акции</a>
 			</li>
 			<li class="flex-grow">
-				<a
-                    href="#"
-					x-data
-					@click.prevent="
-						$store.modalShow.open($dispatch,
-							'<?=$data['website']->popup_callback_title?>',
-							'<?=nl2br2($data['website']->popup_callback_subtitle)?>',
-							'Заказать звонок. Корпоративный отдел',
-							'<?=$data['website']->popup_callback_btn?>'
-						);
-						"
-					class="block text-center py-3 font-semibold hover:bg-gray-700 transition">Корпоративный отдел</a>
+				<a x-data="" @click="
+					$store.modalShow.open($dispatch,
+						'Заказать звонок',
+						'Наши менеджеры с удовольствием свяжутся <br />с Вами!',
+						'Заказать звонок. Корпоративный отдел',
+						'Перезвоните мне'
+					);
+					" class="block text-center py-3 font-semibold hover:bg-gray-700 transition">Корпоративный отдел</a>
 			</li>
 			<li class="flex-grow">
 				<a href="#" class="block text-center py-3 font-semibold hover:bg-gray-700 transition" @click.prevent="scroll('services', 0);">Услуги</a>
