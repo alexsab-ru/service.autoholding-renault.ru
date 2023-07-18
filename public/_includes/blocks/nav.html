@@ -1,0 +1,29 @@
+<nav class="bg-black hidden md:block text-white text-opacity-90 sticky top-0 z-20 shadow-sm">
+	<div class="container mx-auto">
+		<ul class="flex justify-between">
+			<li class="flex-grow">
+				<a href="#" class="block text-center py-3 font-semibold hover:bg-gray-700 transition" @click.prevent="scroll('specials', 0);">Акции</a>
+			</li>
+			<li class="flex-grow">
+				<a
+                    href="#"
+					x-data
+					@click.prevent="
+						$store.modalShow.open($dispatch,
+							'<?=$data['website']->popup_callback_title?>',
+							'<?=nl2br2($data['website']->popup_callback_subtitle)?>',
+							'Заказать звонок. Корпоративный отдел',
+							'<?=$data['website']->popup_callback_btn?>'
+						);
+						"
+					class="block text-center py-3 font-semibold hover:bg-gray-700 transition">Корпоративный отдел</a>
+			</li>
+			<li class="flex-grow">
+				<a href="#" class="block text-center py-3 font-semibold hover:bg-gray-700 transition" @click.prevent="scroll('services', 0);">Услуги</a>
+			</li>
+			<li class="flex-grow">
+				<a href="#" class="block text-center py-3 font-semibold hover:bg-gray-700 transition" @click.prevent="scroll('contacts', 0);">Контакты</a>
+			</li>
+		</ul>
+	</div>
+</nav>
