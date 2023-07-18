@@ -1,0 +1,73 @@
+<!-- Modals -->
+<div
+	x-data="{ title: '', descr: '', subject: '', button: '' }"
+	x-show="$store.modalShow.on > 0"
+	@set-title.window="title = $event.detail"
+	@set-descr.window="descr = $event.detail"
+	@set-subject.window="subject = $event.detail"
+	@set-button.window="button = $event.detail"
+	x-transition:enter="animation-fade"
+	x-transition:leave="animation-fadeout"
+	class="fixed left-0 top-0 h-full w-full bg-black bg-opacity-90 z-50"
+	style="display: none;"
+	>
+	<div @click.away="if($store.modalShow.on == 1)$store.modalShow.on=0;if($store.modalShow.on == 3)$store.modalShow.on=1" class="absolute w-full max-w-[500px]" style="left: 50%; top: 50%; transform: translate(-50%, -50%);">
+		<div class="relative bg-white" x-show="$store.modalShow.on == 1" x-transition:enter="animation-top">
+			<span @click="$store.modalShow.on = 0" class="absolute right-3 top-1 text-gray-700 text-3xl hover:text-gray-700 cursor-pointer">&times;</span>
+			<div class="pt-5 pb-2 text-center text-2xl" x-text="title"></div>
+			<p class="text-center pb-5" x-html="descr"></p>
+			<div class="px-8 pb-8">
+				<form>
+					<input type="hidden" name="subject" :value="subject">
+					<input type="hidden" name="brand" value="renault">
+					<input type="text" name="name" class="form-input w-full border border-gray-500 py-2 px-3 mb-3" placeholder="Ваше имя">
+					<input type="tel" name="phone" class="w-full border border-gray-500 py-2 px-3 mb-5" placeholder="Ваш номер телефона *" required>
+					<small class="block text-xs text-gray-500 mb-5">Нажимая на кнопку «Отправить», вы даете свое согласие на <a x-data @click="$store.modalShow.on=2" href="javascript:void(0)" class="block text-gray-700 underline transition hover:no-underline">обработку персональных данных</a></small>
+					<button type="submit" class="btn btn-primary w-full" x-text="button"></button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div x-data x-show="$store.modalShow.on>1" x-transition:enter="animation-fade" x-transition:leave="animation-fadeout" class="fixed left-0 top-0 h-full w-full z-[10000] bg-black bg-opacity-90" style="display: none;">
+<noindex>
+	<div @click.away="if($store.modalShow.on==4)$store.modalShow.on=0;else $store.modalShow.on=1" class="absolute w-full max-w-[900px]" style="left: 50%; top: 5%; transform: translate(-50%, 0);">
+		<div class="relative bg-white overflow-auto h-screen pb-8" x-show="$store.modalShow.on>1" x-transition:enter="animation-top">
+			<span @click="if($store.modalShow.on==4)$store.modalShow.on=0;else $store.modalShow.on=3" class="absolute right-3 top-1 text-gray-700 text-3xl hover:text-gray-700 cursor-pointer">&times;</span>
+			<div class="py-5 px-8 text-xl sm:text-3xl">Политика в области обработки персональных данных</div>
+			<div class="px-8 pb-8">
+				<div class="policy-text">
+					<?=nl2br($data['website']->privacy_policy)?>
+				</div>
+			</div>
+		</div>
+	</div>
+</noindex>
+</div>
+
+<div
+	class="overflow-y-auto"
+	id="response_modal"
+	x-show="$store.state.isResponseModalOpen"
+	:class="{'fixed z-50 left-0 top-0 bottom-0 right-0 h-full w-full flex items-start justify-center bg-black/80' : $store.state.isResponseModalOpen}"
+	x-transition:enter="animation-fade" x-transition:leave="animation-fadeout"
+>
+	<!-- dialog -->
+	<div
+		class="max-w-[450px] w-full bg-white shadow-2xl m-4 my-12 sm:m-8 px-5 p-4 sm:py-8 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50"
+		x-show="$store.state.isResponseModalOpen"
+		@click.away="$store.state.isResponseModalOpen = false"
+	>
+		<button class="absolute top-1 right-1 text-xl p-1 px-3" @click="$store.state.isResponseModalOpen = false;">&times;</button>
+		<h3 class="text-center mb-5 text-3xl"></h3>
+
+		<div class="content text-center">
+			<p></p>
+		</div>
+		
+	</div>
+	<!-- /dialog -->
+</div>
+<!-- Modals End -->
