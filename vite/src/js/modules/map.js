@@ -115,22 +115,24 @@ function loadScript(url, callback) {
 // Основная функция, которая проверяет когда мы навели на блок с классом "ymap-container"
 function ymap(map) {
 	// console.log(document.querySelector('.loader'))
-	map.parent.onmouseenter =  function() {
+	if(parent){
+		map.parent.onmouseenter =  function() {
 
-		if (!start_load_script) { // проверяем первый ли раз загружается Яндекс.Карта, если да, то загружаем
-
-		// Показываем индикатор загрузки до тех пор, пока карта не загрузится
-		map.parent.querySelector('.loader').classList.add('is-active');
-
-			// Чтобы не было повторной загрузки карты, мы изменяем значение переменной
-			start_load_script = true;
-
-			// Загружаем API Яндекс.Карт
-			loadScript("https://api-maps.yandex.ru/2.1/?lang=ru_RU&loadByRequire=1", function() {
-				end_load_script = !end_load_script;
-				// Как только API Яндекс.Карт загрузились, сразу формируем карту и помещаем в блок с идентификатором "map-yandex"
-				ymaps.load(init, map);
-			});
+			if (!start_load_script) { // проверяем первый ли раз загружается Яндекс.Карта, если да, то загружаем
+	
+			// Показываем индикатор загрузки до тех пор, пока карта не загрузится
+			map.parent.querySelector('.loader').classList.add('is-active');
+	
+				// Чтобы не было повторной загрузки карты, мы изменяем значение переменной
+				start_load_script = true;
+	
+				// Загружаем API Яндекс.Карт
+				loadScript("https://api-maps.yandex.ru/2.1/?lang=ru_RU&loadByRequire=1", function() {
+					end_load_script = !end_load_script;
+					// Как только API Яндекс.Карт загрузились, сразу формируем карту и помещаем в блок с идентификатором "map-yandex"
+					ymaps.load(init, map);
+				});
+			}
 		}
 	}
 }
