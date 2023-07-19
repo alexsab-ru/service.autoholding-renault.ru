@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: 'ru' }}">
+<html lang="{{ page.lang | default: site.lang | default: 'ru' }}" class="min-h-screen">
 {%- include head.html -%}
-<body class="relative" x-data="data" @keydown.escape="$store.state.isResponseModalOpen = false; $store.modalShow.on = ($store.modalShow.on > 1 && $store.modalShow.on < 4) ? 1 : 0;">
+<body class="relative flex flex-col min-h-screen" x-data="data" @keydown.escape="$store.state.isResponseModalOpen = false; $store.modalShow.on = ($store.modalShow.on > 1 && $store.modalShow.on < 4) ? 1 : 0;">
 
 	{%- include header.html -%}
+	{%- include blocks/nav.html -%}
 
-	<main>
+	<main class="flex-grow">
 		{{ content }}
 	</main>
 

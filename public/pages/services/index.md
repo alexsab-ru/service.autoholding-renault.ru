@@ -1,5 +1,8 @@
 ---
 layout: default
+title: Услуги
+menu: Услуги
+permalink: /services/
 ---
 
 <div class="container mx-auto px-4 my-8">

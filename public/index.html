@@ -1,9 +1,25 @@
 ---
 layout: default
+title: Главная
 ---
 
-{% include blocks/nav.html %}
 {% include blocks/banner.html %}
+
+{%- assign default_paths = site.html_pages | sort: 'index' | map: "path" -%}
+
+{%- for path in default_paths -%}
+{%- assign my_page = site.pages | where: "path", path | first -%}
+{% assign children = site.pages | children_of: my_page %}
+{% if my_page.child != true %}
+<a href="{{my_page.url}}">{{ my_page.title }}</a><br>
+{% if children %}
+{%- for page in children -%}
+<a href="{{page.url}}" class="pl-5">{{ page.title }}</a><br>
+{%- endfor -%}
+{% endif %}
+{% endif %}
+{%- endfor -%}
+
 {% include blocks/specials.html %}
 {% include blocks/faq.html %}
 {% include blocks/services.html %}
