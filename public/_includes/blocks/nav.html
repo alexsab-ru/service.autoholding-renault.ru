@@ -1,25 +1,25 @@
+{%- assign default_paths = site.html_pages | sort: 'order' | map: "path" -%}
+
 <nav class="bg-black hidden md:block text-white text-opacity-90 sticky top-0 z-20 shadow-sm">
 	<div class="container mx-auto">
 		<ul class="flex justify-between">
-			<li class="flex-grow">
-				<a href="#" class="block text-center py-3 font-semibold hover:bg-gray-700 transition" @click.prevent="scroll('specials', 0);">Акции</a>
-			</li>
-			<li class="flex-grow">
-				<a href="#" @click.prevent="
-					$store.modalShow.open($dispatch,
-						'Заказать звонок',
-						'Наши менеджеры с удовольствием свяжутся <br />с Вами!',
-						'Заказать звонок. Корпоративный отдел',
-						'Перезвоните мне'
-					);
-					" class="block text-center py-3 font-semibold hover:bg-gray-700 transition">Корпоративный отдел</a>
-			</li>
-			<li class="flex-grow">
-				<a href="#" class="block text-center py-3 font-semibold hover:bg-gray-700 transition" @click.prevent="scroll('services', 0);">Услуги</a>
-			</li>
-			<li class="flex-grow">
-				<a href="#" class="block text-center py-3 font-semibold hover:bg-gray-700 transition" @click.prevent="scroll('contacts', 0);">Контакты</a>
-			</li>
+
+			{% for path in default_paths %}
+				{% assign my_page = site.pages | where: "path", path | first %}
+				{% assign children = site.pages | children_of: my_page %}
+					{% if my_page.child != true and my_page.menu %}
+					<li class="flex-grow relative group">
+						<a href="{{ my_page.url }}" class="block text-center py-3 font-semibold hover:bg-gray-700 transition {% if page.url contains my_page.url %} bg-gray-700 {%endif%}">{{ my_page.title }}</a>
+						{% if children %}
+						<ul class="absolute top-full w-full opacity-0 invisible bg-black group-hover:opacity-100 group-hover:visible">
+							{% for child in children %}
+							<a href="{{child.url}}" class="pl-5 py-3 block hover:bg-gray-700 transition {% if child.url == page.url %} bg-gray-700 {%endif%}">{{ child.title }}</a>
+							{% endfor %}
+						</ul>
+					{% endif %}
+					</li>
+				{% endif %}
+			{% endfor %}
 		</ul>
 	</div>
 </nav>

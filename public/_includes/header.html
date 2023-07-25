@@ -1,7 +1,5 @@
-{% assign pageUrl = page.url | replace: "/", "" | replace: ".html", "" %}
-
 <header class="bg-white">
-	<div class="border-b border-gray-500 relative z-40 {% if pageUrl == '404' %}md:border-gray-500 {% else %}md:border-transparent {% endif %}">
+	<div class="relative z-40">
 		<div class="container mx-auto px-3">
 			<div class="flex flex-row flex-wrap items-center justify-center sm:justify-between py-4 space-x-5 md:space-y-0 space-y-2">
 				<a href="{{ '/' | relative_url }}" class="flex items-center flex-0">
