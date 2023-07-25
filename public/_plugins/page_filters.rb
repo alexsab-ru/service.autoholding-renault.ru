@@ -14,7 +14,7 @@ module Jekyll
         return false if parent_path == child_path
   
         # Remove 'index.md' from the parent path
-        parent_path = parent_path.split("index.md", 2).first
+        parent_path = parent_path.split("index.html", 2).first
   
         child_path.start_with? parent_path
       end
