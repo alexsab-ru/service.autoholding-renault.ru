@@ -6,7 +6,7 @@
 
 			{% for path in default_paths %}
 				{% assign my_page = site.pages | where: "path", path | first %}
-				{% assign children = site.pages | children_of: my_page %}
+				{% assign children = site.pages | children_of: my_page | sort: 'order' %}
 					{% if my_page.child != true and my_page.menu %}
 					<li class="flex-grow relative group">
 						<a href="{{ my_page.url }}" class="block text-center py-3 font-semibold hover:bg-gray-700 transition {% if page.url contains my_page.url %} bg-gray-700 {%endif%}">{{ my_page.title }}</a>

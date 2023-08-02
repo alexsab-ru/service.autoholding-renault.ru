@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+{% if page.image %}
+    <div class="relative">
+        <img src="{{ page.image | relative_url }}" class="h-[450px] w-full object-cover object-top" alt="{{ page.title }}">
+        <div class="absolute w-full h-full inset-0 bg-black/40 text-white flex flex-col items-center justify-center px-5">
+            {% include breadcrumbs.html %}
+            <h1 class="text-3xl sm:text-5xl mt-5 sm:mt-10">{{ page.title }}</h1>
+        </div>
+    </div>
+{% else %}
+
+<div class="container mx-auto px-4 my-8">
+    {% include breadcrumbs.html %}
+    <h1 class="text-5xl mt-5">{{ page.title }}</h1>
+</div>
+
+{% endif %}
+
+{{ content }}

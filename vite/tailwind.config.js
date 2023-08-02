@@ -4,6 +4,10 @@ const colors = require('tailwindcss/colors');
 module.exports = {
 	content: ['../**/*.html'],
 	theme: {
+		container: {
+			center: true,
+			padding: '1rem'
+		},
 		colors: {
 			blue: '#0C90D9',
 			yellow: '#EFDF00',

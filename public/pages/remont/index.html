@@ -1,11 +1,29 @@
 ---
-layout: default
+layout: page
 title: Сервисный центр
 menu: Сервисный центр
 permalink: /remont/
 order: 1
+image: img/salon.jpeg
 ---
 
-<div class="container mx-auto px-4 my-8">
-    <h1 class="text-3xl">{{ page.title }}</h1>
-</div>
+{% assign children = site.pages | children_of: page | sort: 'order' %}
+
+{% if children %}
+<section class="py-8 sm:py-14">
+    <div class="container">
+        <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
+            {% for child in children %}
+            {% assign title = child.title | split: " " %}
+            <a href="{{ child.url }}" class="inline-block relative overflow-hidden rounded shadow-2xl transition-shadow duration-500 ease-out hover:shadow-lg group px-3 sm:px-4 py-4 sm:py-8">
+                {% if child.thumb %}
+                <img src="{{ child.thumb | relative_url }}" class="absolute inset-1/2 -translate-x-1/2 -translate-y-1/2 object-cover object-center h-full -z-[1] opacity-10 transition-opacity duration-500 group-hover:opacity-70" alt="{{ child.title }}">
+                {% endif %}
+                <span class="text-base sm:text-2xl block !leading-none text-gray-900">{{ title[0] }}</span>
+                <h3 class="text-2xl sm:text-5xl md:text-6xl xl:text-7xl 2xl:text-8xl font-bold !leading-none text-black/90">{{ title[1] | upcase }}</h3>              
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
