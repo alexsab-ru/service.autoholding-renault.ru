@@ -1,4 +1,4 @@
-<footer class="py-14 bg-black text-white/70">
+<footer class="py-14 bg-black text-white/80">
 	<div class="container text-sm xl:text-base">
 
 		<div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 sm:gap-4">
@@ -12,7 +12,7 @@
 					</div>
 				</a>
 
-				<p class="text-sm mt-6 mb-8">Ремонт и техническое обслуживание (ТО) автомобилей Рено (Renault) в автосервисе в Краснодаре</p>
+				<p class="text-sm mt-4 mb-8">Ремонт и техническое обслуживание (ТО) автомобилей Рено (Renault) в автосервисе в Краснодаре</p>
 				<p class="text-xs">© Все права защищены | Краснодар {{ site.time | date: '%Y' }}</p>
 			</div>
 
@@ -22,7 +22,10 @@
 				<ul class="space-y-3">
 				{% for path in default_paths %}
 				{% assign my_page = site.pages | where: "path", path | first %}
-				{% if my_page.menu and my_page.child != true%}
+				{% 
+					if my_page.menu 
+					and my_page.child != true 
+				%}
 				<li>
 					<a href="{{my_page.url}}" class="transition-opacity hover:opacity-80">{{my_page.title}}</a>
 				</li>
@@ -36,7 +39,11 @@
 				<ul class="space-y-3">
 				{% for path in default_paths %}
 				{% assign my_page = site.pages | where: "path", path | first %}
-				{% if my_page.menu and my_page.child == true%}
+				{% 
+					if my_page.menu 
+					and my_page.child == true 
+					and my_page.url contains "/remont/" 
+				%}
 				<li>
 					<a href="{{my_page.url}}" class="transition-opacity hover:opacity-80">{{my_page.title}}</a>
 				</li>
@@ -47,7 +54,11 @@
 
 			<div>
 				<h3 class="text-xl mb-5 text-white/90">Контактная информация</h3>
-				
+				<div class="space-y-3">
+					<p>{{ site.address }}</p>
+					<p>{{ site.work['hours'] }} {{ site.work['when'] }}</p>
+					<a href="tel:{% include utils/phonef.html phone=site.phone %}" class="inline-block font-semibold text-xl transition-opacity hover:opacity-80">{{ site.phone }}</a>					
+				</div>
 			</div>
 
 		</div>
