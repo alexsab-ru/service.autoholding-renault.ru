@@ -2,16 +2,16 @@
 <section class="pt-16 pb-9" id="specials">
 	<div class="container">
 		<div class="grid grid-cols-1 lg:grid-cols-2 gap-x-5 gap-y-4 sm:gap-y-5">
-            {% for special in site.data.specials %}
+			{% for special in site.data.specials %}
 			<div
 				@click="
-                $store.modalShow.open($dispatch,
-                    'Появились вопросы?',
-                    'Наши менеджеры с удовольствием свяжутся <br />с Вами!',
-                    'Акции. {{special['title']}} {{special['subtitle']}}',
-                    'Перезвоните мне'
-                );
-                "
+				$store.modalShow.open($dispatch,
+					'Появились вопросы?',
+					'Наши менеджеры с удовольствием свяжутся <br />с Вами!',
+					'Акции. {{special['title']}} {{special['subtitle']}}',
+					'Перезвоните мне'
+				);
+				"
 				class="special border-4 border-black px-4 pt-6 pb-8 sm:px-5 sm:pt-8 sm:pb-12 cursor-pointer transition hover:bg-gray-100"
 			>
 				<div class="flex items-center">
@@ -30,7 +30,7 @@
 					</div>
 				</div>
 			</div>
-            {% endfor %}
+			{% endfor %}
 		</div>
 	</div>
 </section>

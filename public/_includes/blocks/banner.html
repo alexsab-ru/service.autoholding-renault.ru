@@ -5,15 +5,15 @@
 		<!-- Additional required wrapper -->
 		<div class="swiper-wrapper h-full">
 			<!-- Slides -->
-            {% for banner in site.data.banners %}
+			{% for banner in site.data.banners %}
 			<a href="javascript:void(0)" class="swiper-slide h-full" x-data
-				@click="				
+				@click="
 					$store.modalShow.open($dispatch,
 						'Появились вопросы?',
 						'Наши менеджеры с удовольствием свяжутся <br />с Вами!',
 						'Баннер',
 						'Перезвоните мне'
-					);										
+					);
 					">
 				<img
 					src="{{ banner['desktop'] | relative_url }}"
@@ -25,7 +25,7 @@
 					/>
 				<div class="swiper-lazy-preloader"></div>
 			</a>
-            {% endfor %}
+			{% endfor %}
 		</div>
 		<div class="swiper-pagination"></div>
 		<div class="swiper-button-prev !w-10 !h-16 !left-0"></div>

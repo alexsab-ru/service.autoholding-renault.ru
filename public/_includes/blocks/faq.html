@@ -11,8 +11,8 @@
 		</div>
 
 		{% for f in site.data.faq %} 
-        {% assign id = f['id'] %} 
-        {% assign open = f['open'] %}
+		{% assign id = f['id'] %} 
+		{% assign open = f['open'] %}
 		<div
 			class="px-5 py-4 rounded-md mb-3 transition hover:bg-gray-300"
 			:class="{'bg-gray-300': activities.includes({{ id }}), 'bg-gray-100': !activities.includes({{ id }})}"
@@ -21,10 +21,10 @@
 			<div
 				class="flex items-center justify-between cursor-pointer"
 				@click="
-                        activities.includes({{ id }}) ? 
-                        activities = activities.filter(id => id != {{ id }}) : 
-                        activities.push({{ id }})
-                    "
+						activities.includes({{ id }}) ? 
+						activities = activities.filter(id => id != {{ id }}) : 
+						activities.push({{ id }})
+					"
 			>
 				<div class="font-semibold text-sm md:text-lg">{{ f['question'] }}</div>
 

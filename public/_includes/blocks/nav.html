@@ -1,18 +1,18 @@
 {%- assign default_paths = site.html_pages | sort: 'order' | map: "path" -%}
 
-<nav 
-	class="bg-black text-white text-opacity-90 max-lg:fixed max-lg:max-w-[450px] w-full max-lg:right-0 max-lg:h-screen max-lg:!top-0 sticky transition-transform lg:transition-all duration-500 ease-out-expo z-50 shadow-xl max-lg:py-12 lg:!translate-x-0" 
+<nav
+	class="bg-black text-white text-opacity-90 max-lg:fixed max-lg:max-w-[450px] w-full max-lg:right-0 max-lg:h-screen max-lg:!top-0 sticky transition-transform lg:transition-all duration-500 ease-out-expo z-50 shadow-xl max-lg:py-12 lg:!translate-x-0"
 	x-cloak
 	id="site_nav"
 	:class="{'translate-x-full': !mobile}"
 >
-	<button 
-		class="absolute top-1 right-2 w-10 h-10 flex items-center justify-center lg:hidden outline-none text-white" 
+	<button
+		class="absolute top-1 right-2 w-10 h-10 flex items-center justify-center lg:hidden outline-none text-white"
 		@click="mobile = false"
 		>
 		<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
 			<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-		</svg>							
+		</svg>
 	</button>
 	<div class="container max-lg:px-0 h-full max-lg:overflow-y-auto">
 		<a href="tel:{% include utils/phonef.html phone=site.phone %}" class="font-semibold text-2xl px-4 md:hidden">{{ site.phone }}</a>
@@ -22,11 +22,11 @@
 		{% assign children = site.pages | children_of: my_page | sort: 'order' %}
 			{% if my_page.child != true and my_page.menu %}
 			<li class="flex-grow relative group">
-				<a href="{{ my_page.url }}" class="block max-lg:px-4 lg:text-center py-3 font-semibold hover:bg-gray-700 transition {% if page.url contains my_page.url %} bg-gray-700 {%endif%}">{{ my_page.title }}</a>
+				<a href="{{ my_page.url }}" class="block max-lg:px-4 lg:text-center py-3 font-semibold hover:bg-gray-700 transition {% if page.url contains my_page.url %} bg-gray-700 {%endif%}">{{ my_page.menu }}</a>
 				{% if children %}
 				<ul class="lg:absolute top-full w-full lg:opacity-0 lg:invisible bg-black group-hover:opacity-100 group-hover:visible">
 					{% for child in children %}
-					<a href="{{child.url}}" class="max-lg:pl-10 pl-5 py-3 block hover:bg-gray-700 transition {% if child.url == page.url %} bg-gray-700 {%endif%}">{{ child.title }}</a>
+					<a href="{{child.url}}" class="max-lg:pl-10 pl-5 py-3 block hover:bg-gray-700 transition {% if child.url == page.url %} bg-gray-700 {%endif%}">{{ child.menu }}</a>
 					{% endfor %}
 				</ul>
 			{% endif %}
