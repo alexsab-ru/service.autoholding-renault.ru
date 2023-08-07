@@ -27,7 +27,7 @@
 					and my_page.child != true
 				%}
 				<li>
-					<a href="{{my_page.url}}" class="transition-opacity hover:opacity-80">{{my_page.menu}}</a>
+					<a href="{{my_page.url}}" class="transition-opacity hover:opacity-80">{{ my_page.menu | default: page.title }}</a>
 				</li>
 				{% endif %}
 				{% endfor %}
@@ -45,7 +45,7 @@
 					and my_page.url contains "/remont/"
 				%}
 				<li>
-					<a href="{{my_page.url}}" class="transition-opacity hover:opacity-80">{{my_page.menu}}</a>
+					<a href="{{my_page.url}}" class="transition-opacity hover:opacity-80">{{ my_page.menu | default: page.title }}</a>
 				</li>
 				{% endif %}
 				{% endfor %}

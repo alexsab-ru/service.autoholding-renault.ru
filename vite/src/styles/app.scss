@@ -1,9 +1,9 @@
 @import "sass/_mixins/_font-face.sass";
 
-@include font-face("NouvelR", "https://alexsab-ru.github.io/service.autoholding-renault.ru/assets/fonts/NouvelR-Light", 300);
-@include font-face("NouvelR", "https://alexsab-ru.github.io/service.autoholding-renault.ru/assets/fonts/NouvelR-Regular", 400);
-@include font-face("NouvelR", "https://alexsab-ru.github.io/service.autoholding-renault.ru/assets/fonts/NouvelR-Semibold", 600);
-@include font-face("NouvelR", "https://alexsab-ru.github.io/service.autoholding-renault.ru/assets/fonts/NouvelR-Bold", 700);
+@include font-face("NouvelR", "/assets/fonts/NouvelR-Light", 300);
+@include font-face("NouvelR", "/assets/fonts/NouvelR-Regular", 400);
+@include font-face("NouvelR", "/assets/fonts/NouvelR-Semibold", 600);
+@include font-face("NouvelR", "/assets/fonts/NouvelR-Bold", 700);
 
 @import "../../../node_modules/swiper/swiper-bundle.min.css";
 

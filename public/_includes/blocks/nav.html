@@ -22,7 +22,7 @@
 		{% assign children = site.pages | children_of: my_page | sort: 'order' %}
 			{% if my_page.child != true and my_page.menu %}
 			<li class="flex-grow relative group">
-				<a href="{{ my_page.url }}" class="block max-lg:px-4 lg:text-center py-3 font-semibold hover:bg-gray-700 transition {% if page.url contains my_page.url %} bg-gray-700 {%endif%}">{{ my_page.menu }}</a>
+				<a href="{{ my_page.url }}" class="block max-lg:px-4 lg:text-center py-3 font-semibold hover:bg-gray-700 transition {% if page.url contains my_page.url %} bg-gray-700 {%endif%}">{{ my_page.menu | default: page.title }}</a>
 				{% if children %}
 				<ul class="lg:absolute top-full w-full lg:opacity-0 lg:invisible bg-black group-hover:opacity-100 group-hover:visible">
 					{% for child in children %}

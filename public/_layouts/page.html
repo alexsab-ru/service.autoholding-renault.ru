@@ -13,13 +13,13 @@ layout: default
 		class="absolute w-full h-full inset-0 bg-black/40 text-white flex flex-col items-center justify-center px-5"
 	>
 		{% include breadcrumbs.html %}
-		<h1 class="text-3xl sm:text-5xl mt-5 sm:mt-10">{{ page.title }}</h1>
+		<h1 class="text-3xl sm:text-5xl mt-5 sm:mt-10">{{ page.h1 | default: page.title }}</h1>
 	</div>
 </div>
 {% else %}
 <div class="container my-8">
 	{% include breadcrumbs.html %}
-	<h1 class="text-3xl sm:text-5xl mt-5">{{ page.title }}</h1>
+	<h1 class="text-3xl sm:text-5xl mt-5">{{ page.h1 | default: page.title }}</h1>
 </div>
 {% endif %}
 
