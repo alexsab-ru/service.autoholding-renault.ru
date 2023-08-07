@@ -1,13 +1,16 @@
 {% if site.data.services | size > 0 %}
 {% assign services = site.data.services %}
+{% assign title = include title %}
 <section class="services pt-16 pb-8 bg-gray-900 relative" id="services">
-	<div class="container px-3 mx-auto">
-		<div class="text-white text-2xl sm:text-4xl text-center font-bold relative pb-3">
+	<div class="container">
+		{% if title %}
+		<div class="text-white text-2xl sm:text-4xl text-center font-bold relative pb-3 mb-16">
 			Услуги
 			<span class="absolute left-[50%] bottom-0 w-24 h-0.5 bg-white transform translate-x-[-50%]"></span>
 		</div>
+		{% endif %}
 
-		<div class="flex flex-wrap justify-center mt-16">
+		<div class="flex flex-wrap justify-center">
 		{% for service in services %}
 		{% if service['show'] %}
 			<a

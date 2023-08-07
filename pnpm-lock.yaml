@@ -3,11 +3,13 @@ lockfileVersion: 5.3
 specifiers:
   '@vitejs/plugin-vue': ^4.0.0
   '@vue/compiler-sfc': ^3.2.45
+  alpinejs: ^3.12.3
   autoprefixer: ^10.4.14
   concurrently: ^8.2.0
   cross-env: ^7.0.3
   postcss: ^8.4.25
   sass: ^1.63.6
+  swiper: ^10.0.4
   tailwindcss: ^3.3.2
   vite: ^4.0.4
   vite-plugin-live-reload: ^3.0.1
@@ -15,13 +17,15 @@ specifiers:
 devDependencies:
   '@vitejs/plugin-vue': 4.2.3_vite@4.4.2
   '@vue/compiler-sfc': 3.3.4
+  alpinejs: 3.12.3
   autoprefixer: 10.4.14_postcss@8.4.25
   concurrently: 8.2.0
   cross-env: 7.0.3
   postcss: 8.4.25
-  sass: 1.63.6
+  sass: 1.64.2
+  swiper: 10.1.0
   tailwindcss: 3.3.2
-  vite: 4.4.2_sass@1.63.6
+  vite: 4.4.2_sass@1.64.2
   vite-plugin-live-reload: 3.0.2
 
 packages:
@@ -282,7 +286,7 @@ packages:
       vite: ^4.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 4.4.2_sass@1.63.6
+      vite: 4.4.2_sass@1.64.2
     dev: true
 
   /@vue/compiler-core/3.3.4:
@@ -333,8 +337,24 @@ packages:
       magic-string: 0.30.1
     dev: true
 
+  /@vue/reactivity/3.1.5:
+    resolution: {integrity: sha512-1tdfLmNjWG6t/CsPldh+foumYFo3cpyCHgBYQ34ylaMsJ+SNHQ1kApMIa8jN+i593zQuaw3AdWH0nJTARzCFhg==}
+    dependencies:
+      '@vue/shared': 3.1.5
+    dev: true
+
+  /@vue/shared/3.1.5:
+    resolution: {integrity: sha512-oJ4F3TnvpXaQwZJNF3ZK+kLPHKarDmJjJ6jyzVNDKH9md1dptjC7lWR//jrGuLdek/U6iltWxqAnYOu8gCiOvA==}
+    dev: true
+
   /@vue/shared/3.3.4:
     resolution: {integrity: sha512-7OjdcV8vQ74eiz1TZLzZP4JwqM5fA94K6yntPS5Z25r9HDuGNzaGdgvwKYq6S+MxwF0TFRwe50fIR/MYnakdkQ==}
+    dev: true
+
+  /alpinejs/3.12.3:
+    resolution: {integrity: sha512-fLz2dfYQ3xCk7Ip8LiIpV2W+9brUyex2TAE7Z0BCvZdUDklJE+n+a8gCgLWzfZ0GzZNZu7HUP8Z0z6Xbm6fsSA==}
+    dependencies:
+      '@vue/reactivity': 3.1.5
     dev: true
 
   /ansi-regex/5.0.1:
@@ -662,8 +682,8 @@ packages:
       function-bind: 1.1.1
     dev: true
 
-  /immutable/4.3.1:
-    resolution: {integrity: sha512-lj9cnmB/kVS0QHsJnYKD1uo3o39nrbKxszjnqS9Fr6NB7bZzW45U6WSGBPKXDL/CvDKqDNPA4r3DoDQ8GTxo2A==}
+  /immutable/4.3.2:
+    resolution: {integrity: sha512-oGXzbEDem9OOpDWZu88jGiYCvIsLHMvGw+8OXlpsvTFvIQplQbjg1B1cvKg8f7Hoch6+NGjpPsH1Fr+Mc2D1aA==}
     dev: true
 
   /inflight/1.0.6:
@@ -967,13 +987,13 @@ packages:
       tslib: 2.6.0
     dev: true
 
-  /sass/1.63.6:
-    resolution: {integrity: sha512-MJuxGMHzaOW7ipp+1KdELtqKbfAWbH7OLIdoSMnVe3EXPMTmxTmlaZDCTsgIpPCs3w99lLo9/zDKkOrJuT5byw==}
+  /sass/1.64.2:
+    resolution: {integrity: sha512-TnDlfc+CRnUAgLO9D8cQLFu/GIjJIzJCGkE7o4ekIGQOH7T3GetiRR/PsTWJUHhkzcSPrARkPI+gNWn5alCzDg==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
       chokidar: 3.5.3
-      immutable: 4.3.1
+      immutable: 4.3.2
       source-map-js: 1.0.2
     dev: true
 
@@ -1049,6 +1069,11 @@ packages:
   /supports-preserve-symlinks-flag/1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
+    dev: true
+
+  /swiper/10.1.0:
+    resolution: {integrity: sha512-E+wh+hcSbwlRfXuwBTclcOOikOjNdSF0a2Sdg3J4cIWtHO64A7SaLRfezfrJ67CW3GEc15AduYU2YKlElsjqsQ==}
+    engines: {node: '>= 4.7.0'}
     dev: true
 
   /tailwindcss/3.3.2:
@@ -1138,7 +1163,7 @@ packages:
       picocolors: 1.0.0
     dev: true
 
-  /vite/4.4.2_sass@1.63.6:
+  /vite/4.4.2_sass@1.64.2:
     resolution: {integrity: sha512-zUcsJN+UvdSyHhYa277UHhiJ3iq4hUBwHavOpsNUGsTgjBeoBlK8eDt+iT09pBq0h9/knhG/SPrZiM7cGmg7NA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -1169,7 +1194,7 @@ packages:
       esbuild: 0.18.11
       postcss: 8.4.25
       rollup: 3.26.2
-      sass: 1.63.6
+      sass: 1.64.2
     optionalDependencies:
       fsevents: 2.3.2
     dev: true

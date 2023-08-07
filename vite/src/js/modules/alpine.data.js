@@ -19,6 +19,7 @@ document.addEventListener('alpine:init', (data) => {
                 });
             }
 		},
+		mobile: false
 	}));
 
 	Alpine.store('modalShow', {

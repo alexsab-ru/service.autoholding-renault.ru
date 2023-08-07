@@ -1,15 +1,76 @@
-<footer class="py-10 bg-black text-white text-opacity-70">
-	<div class="container px-3 mx-auto text-base">
-		<a href="/" class="flex items-center flex-0">
-			<img src="{{ 'img/logo-renault-black.svg' | relative_url }}" alt="ALT" class="filter brightness-0 invert w-[100px] md:w-[170px] hidden md:block mx-auto mb-10">
-			<img src="{{ 'img/logo-renault-black.svg' | relative_url }}" alt="ALT" class="filter brightness-0 invert md:hidden mx-auto mb-10">
-		</a>
+<footer class="py-14 bg-black text-white/80">
+	<div class="container text-sm xl:text-base">
+
+		<div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 sm:gap-4">
+
+			<div>
+				<a href="/" class="flex items-center flex-0">
+					<img src="{{ 'img/logo-renault-black.svg' | relative_url }}" alt="АВТОХОЛДИНГ RENAULT" class="filter brightness-0 invert h-[44px]">
+					<div class="max-[450px]:ml-1 ml-3 space-y-0 leading-none">
+						<p class="uppercase font-semibold max-[450px]:text-xs">АВТОХОЛДИНГ RENAULT</p>
+						<p class="text-[11px] max-[450px]:text-[8px]">официальный дилер</p>
+					</div>
+				</a>
+
+				<p class="text-sm mt-4 mb-8">Ремонт и техническое обслуживание (ТО) автомобилей Рено (Renault) в автосервисе в Краснодаре</p>
+				<p class="text-xs">© Все права защищены | Краснодар {{ site.time | date: '%Y' }}</p>
+			</div>
+
+			<div>
+				<h3 class="text-xl mb-5 text-white/90">Разделы сайта</h3>
+				{% assign default_paths = site.html_pages | sort: 'order' | map: "path" %}
+				<ul class="space-y-3">
+				{% for path in default_paths %}
+				{% assign my_page = site.pages | where: "path", path | first %}
+				{%
+					if my_page.menu
+					and my_page.child != true
+				%}
+				<li>
+					<a href="{{my_page.url}}" class="transition-opacity hover:opacity-80">{{my_page.menu}}</a>
+				</li>
+				{% endif %}
+				{% endfor %}
+				</ul>
+			</div>
+
+			<div>
+				<h3 class="text-xl mb-5 text-white/90">Сервисный центр</h3>
+				<ul class="space-y-3">
+				{% for path in default_paths %}
+				{% assign my_page = site.pages | where: "path", path | first %}
+				{%
+					if my_page.menu
+					and my_page.child == true
+					and my_page.url contains "/remont/"
+				%}
+				<li>
+					<a href="{{my_page.url}}" class="transition-opacity hover:opacity-80">{{my_page.menu}}</a>
+				</li>
+				{% endif %}
+				{% endfor %}
+				</ul>
+			</div>
+
+			<div>
+				<h3 class="text-xl mb-5 text-white/90">Контактная информация</h3>
+				<div class="space-y-3">
+					<p>{{ site.address }}</p>
+					<p>{{ site.work['hours'] }} {{ site.work['when'] }}</p>
+					<a href="tel:{% include utils/phonef.html phone=site.phone %}" class="inline-block font-semibold text-xl transition-opacity hover:opacity-80">{{ site.phone }}</a>
+				</div>
+			</div>
+
+		</div>
+
+		<hr class="my-8">
+
 		<p class="mb-4">
-            Мы не разделяем автомобили на новые или старые, автомобили на заводской гарантии или после ее окончания. Для всех владельцев Renault и на автомобили Renault любого года выпуска мы готовы предоставить обслуживание любого типа, по одинаково низким ценам, но со всеми преимуществами Официального дилера.
-            <br>
-            <br>
-            Стоимость ТО, указанная на сайте, является ориентировочной. Не является офертой
-        </p>
+			Мы не разделяем автомобили на новые или старые, автомобили на заводской гарантии или после ее окончания. Для всех владельцев Renault и на автомобили Renault любого года выпуска мы готовы предоставить обслуживание любого типа, по одинаково низким ценам, но со всеми преимуществами Официального дилера.
+			<br>
+			<br>
+			Стоимость ТО, указанная на сайте, является ориентировочной. Не является офертой
+		</p>
 		<hr class="my-8">
 		<div class="text-center text-sm">
 			<a x-data @click="$store.modalShow.on = 4" href="javascript:void(0)" class="underline transition hover:no-underline inline-block mb-3">Политика в области обработки персональных данных</a>

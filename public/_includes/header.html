@@ -1,14 +1,12 @@
-{% assign pageUrl = page.url | replace: "/", "" | replace: ".html", "" %}
-
-<header class="bg-white">
-	<div class="border-b border-gray-500 relative z-40 {% if pageUrl == '404' %}md:border-gray-500 {% else %}md:border-transparent {% endif %}">
-		<div class="container mx-auto px-3">
-			<div class="flex flex-row flex-wrap items-center justify-center sm:justify-between py-4 space-x-5 md:space-y-0 space-y-2">
+<header class="bg-white sticky transition-all duration-[.4s] ease-out-expo z-50 max-lg:shadow-2xl">
+	<div class="relative z-40">
+		<div class="container">
+			<div class="flex flex-row items-center justify-between py-4 space-x-5 md:space-y-0 space-y-2">
 				<a href="{{ '/' | relative_url }}" class="flex items-center flex-0">
-					<img src="{{ 'img/logo-renault-black.svg' | relative_url }}" alt="{{ site.title }}" class="h-[44px]">
-					<div class="ml-3 space-y-0 leading-none">
-						<p class="uppercase font-semibold">АВТОХОЛДИНГ RENAULT</p>
-						<p class="text-[11px]">официальный дилер</p>
+					<img src="{{ 'img/logo-renault-black.svg' | relative_url }}" alt="{{ site.title }}" class="max-[450px]:h-[35px] h-[44px]">
+					<div class="max-[450px]:ml-1 ml-3 space-y-0 leading-none">
+						<p class="uppercase font-semibold max-[450px]:text-xs">АВТОХОЛДИНГ RENAULT</p>
+						<p class="text-[11px] max-[450px]:text-[8px]">официальный дилер</p>
 					</div>
 				</a>
 
@@ -24,9 +22,10 @@
 					</div>
 				</div>
 
-				<a href="tel:{% include utils/phonef.html phone=site.phone %}" class="text-gray-900 font-semibold text-lg lg:text-2xl">{{ site.phone }}</a>
+				<a href="tel:{% include utils/phonef.html phone=site.phone %}" class="text-gray-900 font-semibold text-lg lg:text-2xl hidden md:block">{{ site.phone }}</a>
 
-				<button x-data="" @click="
+				<div class="flex items-center gap-3">
+					<button x-data="" @click="
 						$store.modalShow.open($dispatch,
 							'Заказать звонок',
 							'Наши менеджеры с удовольствием свяжутся <br />с Вами!',
@@ -35,6 +34,17 @@
 						);
 						" class="btn btn-super-primary">
 					Звони</button>
+
+					<button 
+						class="w-12 h-[46px] flex items-center justify-center lg:hidden outline-none text-black border border-black/10" 
+						@click="mobile = true"
+						@click.outside="mobile = false"
+					>
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+						</svg>				  
+					</button>
+				</div>
 
 			</div>
 		</div>

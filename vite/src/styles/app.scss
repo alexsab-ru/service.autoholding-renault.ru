@@ -14,3 +14,7 @@
 @import "sass/common";
 
 @import "sass/components/buttons";
+
+[x-cloak] {
+    @apply max-lg:hidden;
+}

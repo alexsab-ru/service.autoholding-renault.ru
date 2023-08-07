@@ -1,22 +1,22 @@
 {% if site.data.specials | size > 0 %}
 <section class="pt-16 pb-9" id="specials">
-	<div class="container px-3 mx-auto">
-		<div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-6">
-            {% for special in site.data.specials %}
+	<div class="container">
+		<div class="grid grid-cols-1 lg:grid-cols-2 gap-x-5 gap-y-4 sm:gap-y-5">
+			{% for special in site.data.specials %}
 			<div
 				@click="
-                $store.modalShow.open($dispatch,
-                    'Появились вопросы?',
-                    'Наши менеджеры с удовольствием свяжутся <br />с Вами!',
-                    'Акции. {{special['title']}} {{special['subtitle']}}',
-                    'Перезвоните мне'
-                );
-                "
+				$store.modalShow.open($dispatch,
+					'Появились вопросы?',
+					'Наши менеджеры с удовольствием свяжутся <br />с Вами!',
+					'Акции. {{special['title']}} {{special['subtitle']}}',
+					'Перезвоните мне'
+				);
+				"
 				class="special border-4 border-black px-4 pt-6 pb-8 sm:px-5 sm:pt-8 sm:pb-12 cursor-pointer transition hover:bg-gray-100"
 			>
 				<div class="flex items-center">
 					<img
-						src="{{ special['img'] }}"
+						src="{{ special['img'] | relative_url }}"
 						alt="{{ special['title'] }}"
 						class="rounded-full relative z-10 border-4 border-black w-[100px] h-[100px] sm:w-[150px] sm:h-[150px] object-cover object-center"
 					/>
@@ -30,7 +30,7 @@
 					</div>
 				</div>
 			</div>
-            {% endfor %}
+			{% endfor %}
 		</div>
 	</div>
 </section>

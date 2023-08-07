@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: 'ru' }}" class="min-h-screen">
 {%- include head.html -%}
-<body class="relative flex flex-col min-h-screen" x-data="data" @keydown.escape="$store.state.isResponseModalOpen = false; $store.modalShow.on = ($store.modalShow.on > 1 && $store.modalShow.on < 4) ? 1 : 0;">
+<body class="relative flex flex-col min-h-screen" x-data="data" @keydown.escape="$store.state.isResponseModalOpen = false; $store.modalShow.on = ($store.modalShow.on > 1 && $store.modalShow.on < 4) ? 1 : 0; mobile = false;">
 
 	{%- include header.html -%}
 	{%- include blocks/nav.html -%}
