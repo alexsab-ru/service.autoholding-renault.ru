@@ -1,6 +1,6 @@
 <div id="breadcrumbs" class="text-xs sm:text-base font-light flex items-center gap-2 px-1 max-w-full">
 	{% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
-	<a href="{{ site.url }}" class="font-normal transition-opacity hover:opacity-80">Главная</a>
+	<a href="{{ '/' | relative_url }}" class="font-normal transition-opacity hover:opacity-80">Главная</a>
 	{% for crumb in crumbs offset: 1 %}
 	{% if forloop.last %} <span class="font-normal">/</span><span class="truncate">{{ page.breadcrumbs | default: page.title }}</span>
 	{% else %}
