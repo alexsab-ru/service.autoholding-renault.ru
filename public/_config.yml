@@ -9,7 +9,7 @@ work:
   when: (ежедневно)
 h1: Автосервис по ремонту и ТО автомобилей Рено (Renault)
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://service.autoholding-renault.ru" # the base hostname & protocol for your site, e.g. http://example.com
 
 destination: ../_site/
 
