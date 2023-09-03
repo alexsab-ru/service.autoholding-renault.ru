@@ -12,6 +12,12 @@
 	<meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
 	<meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" />
 	<meta property="og:type" content="website" />
+	{% if page.canonical_url != nil %}
+	<link rel="canonical" href="{{ page.canonical_url }}"/>
+	{% else %}
+	<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+	{% endif %}
+
 
 	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="{{ 'img/logos/apple-touch-icon-57x57.png' | relative_url }}" />
 	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ 'img/logos/apple-touch-icon-114x114.png' | relative_url }}" />

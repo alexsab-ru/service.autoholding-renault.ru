@@ -40,12 +40,12 @@
 				{% for path in default_paths %}
 				{% assign my_page = site.pages | where: "path", path | first %}
 				{%
-					if my_page.menu
+					if my_page.footer
 					and my_page.child == true
 					and my_page.url contains "/remont/"
 				%}
 				<li>
-					<a href="{{my_page.url}}" class="transition-opacity hover:opacity-80">{{ my_page.menu | default: page.title }}</a>
+					<a href="{{my_page.url}}" class="transition-opacity hover:opacity-80">{{ my_page.footer | default: page.title }}</a>
 				</li>
 				{% endif %}
 				{% endfor %}
@@ -79,6 +79,8 @@
 		<p class="mt-8 right-0 text-right text-sm">Разработка <a href="https://alexsab.ru?utm_source=autoholding" target="_blank">alexsab.ru</a></p>
 	</div>
 </footer>
+
+<div class="btn-up btn-up_hide"></div>
 
 <div class="hidden cookie_notice fixed bottom-0 left-0 right-0 p-5 bg-gray-100 z-[9999] text-center text-xs sm:text-sm text-gray-500">
 	Этот сайт использует файлы cookies и сервисы сбора технических данных посетителей (данные об IP-адресе, местоположении и др.) для обеспечения работоспособности и улучшения качества обслуживания. Продолжая использовать наш сайт, вы автоматически соглашаетесь с использованием данных технологий.

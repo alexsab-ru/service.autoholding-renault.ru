@@ -4,3 +4,4 @@ import "./modules/cookie";
 import "./modules/map";
 import "./modules/form";
 import "./modules/alpine.data";
+import './modules/btn.up';
